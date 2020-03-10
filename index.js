@@ -6,13 +6,19 @@
 
 // console.log(test([8, 1, 2, 3, 4, 3, 5, 6, 7]));
 
-const redundant = arr => {
-  let unique = arr.filter(function(value) {
-    console.log(value);
+const redundant = (a, b) => {
+  if (a === 0) {
+    return b;
+  }
 
-    return arr.indexOf(value) === arr.lastIndexOf(value);
-  });
-  return unique[0];
+  if (b.length >= 1) {
+    for (let i = 1; i <= a; i++) {
+      let num = b[0];
+      b.push(num);
+      b.shift();
+    }
+  }
+  return b;
 };
 
-console.log(redundant([0, 0, 1, 2, 1]));
+console.log(redundant(4, [1, 2, 3, 4, 5]));
