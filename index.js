@@ -6,11 +6,13 @@
 
 // console.log(test([8, 1, 2, 3, 4, 3, 5, 6, 7]));
 
-const redundant = s => {
-  if (s.length >= 1 && s.length <= 10000) {
-    let answer = s.replace(/[^A-Z]/g, "");
-    return answer.length + 1;
-  }
+const redundant = arr => {
+  let unique = arr.filter(function(value) {
+    console.log(value);
+
+    return arr.indexOf(value) === arr.lastIndexOf(value);
+  });
+  return unique[0];
 };
 
-console.log(redundant("saveChangesInTheEditor"));
+console.log(redundant([0, 0, 1, 2, 1]));
